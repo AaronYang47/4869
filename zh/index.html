@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4869 — macOS 本地加密文件夹</title>
+    <meta name="description" content="4869 是一款适用于 macOS 的本地文件夹加密工具，支持 scrypt、AES-256-GCM、ChaCha20-Poly1305、诱饵密码与可选后量子恢复。">
+    <link rel="canonical" href="https://aaronyang47.github.io/4869/zh/">
+    <link rel="alternate" hreflang="zh-CN" href="https://aaronyang47.github.io/4869/zh/">
+    <link rel="alternate" hreflang="en" href="https://aaronyang47.github.io/4869/en/">
+    <link rel="alternate" hreflang="x-default" href="https://aaronyang47.github.io/4869/">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="bg-atmosphere"></div>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="#home" class="nav-brand"><img src="images/logo.png" alt="4869" class="nav-logo-img">4869</a>
+            <ul class="nav-links">
+                <li><a href="#features">功能</a></li>
+                <li><a href="#security">安全设计</a></li>
+                <li><a href="#install">安装</a></li>
+                <li><a href="#advanced">诱饵与恢复</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a href="https://gitee.com/aaron0047/4869">Gitee</a></li>
+                <li><a href="../?lang=en" aria-label="Switch to English">English</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="切换导航">☰</button>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div>
+            <div class="hero-badge"><span class="dot"></span>现已支持 macOS</div>
+            <h1>你的文件。<br><span class="gradient">在本机安全加密。</span></h1>
+            <p class="hero-desc">4869 可将普通文件夹转换为本地加密保险库。无需账号、云服务或网络连接，应用不会上传你的文件。</p>
+            <div class="hero-actions">
+                <a href="https://gitee.com/aaron0047/4869/releases/download/v1.0/4869-1.0.dmg" class="btn btn-primary"><span></span>下载 macOS 版</a>
+                <a href="#security" class="btn btn-secondary">了解安全设计 →</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><div class="hero-stat-value">256-bit</div><div class="hero-stat-label">加密密钥</div></div>
+                <div class="hero-stat"><div class="hero-stat-value">128 MB</div><div class="hero-stat-label">内存困难 KDF</div></div>
+                <div class="hero-stat"><div class="hero-stat-value">0</div><div class="hero-stat-label">云端服务器</div></div>
+                <div class="hero-stat"><div class="hero-stat-value">双架构</div><div class="hero-stat-label">Intel 与 Apple 芯片</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <div class="container">
+            <div class="reveal visible"><div class="section-label">核心功能</div><h2 class="section-title">为本地隐私而设计。</h2><p class="section-subtitle">所有加密和解密操作均在你的 Mac 上完成。</p></div>
+            <div class="feature-grid">
+                <div class="feature-card reveal visible"><div class="feature-icon">🔐</div><h3>双层认证加密</h3><p>每个文件以 4 MB 分块，依次使用 AES-256-GCM 与 ChaCha20-Poly1305 加密，并通过 HKDF-SHA512 派生独立子密钥。</p></div>
+                <div class="feature-card reveal visible"><div class="feature-icon">🧠</div><h3>scrypt 密码派生</h3><p>参数 N=131,072、r=8、p=1，每次密码尝试约需 128 MB 内存，提升离线暴力破解成本。</p></div>
+                <div class="feature-card reveal visible"><div class="feature-icon">🎭</div><h3>诱饵密码</h3><p>可设置第二个密码，仅展示无敏感内容的诱饵文件。此功能不能替代强密码与安全备份。</p></div>
+                <div class="feature-card reveal visible"><div class="feature-icon">🛡️</div><h3>可选恢复密钥</h3><p>macOS 26 及以上版本可使用 XWing（ML-KEM-768 + X25519）生成独立恢复密钥。</p></div>
+                <div class="feature-card reveal visible"><div class="feature-icon">⏱️</div><h3>临时查看</h3><p>无需永久解锁即可临时查看文件。明文副本会在超时、正常退出或下次启动时清理。</p></div>
+                <div class="feature-card reveal visible"><div class="feature-icon">📁</div><h3>Finder 集成</h3><p>加密文件夹会成为 <code>.4869</code> 文件包，可在 Finder 中双击打开。</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="security">
+        <div class="container">
+            <div class="reveal visible"><div class="section-label">安全设计</div><h2 class="section-title">先验证，再删除明文。</h2></div>
+            <div class="glass-card reveal visible">
+                <p>4869 会先完成全部文件加密，再逐个测试解密并核对 SHA-256。只有验证通过后，才会提交保险库并移除原始文件。发生错误时会尽可能回滚，保留可恢复的数据。</p>
+                <table class="spec-table">
+                    <tr><th>文件加密</th><td>AES-256-GCM + ChaCha20-Poly1305</td></tr>
+                    <tr><th>密码派生</th><td>scrypt（RFC 7914）</td></tr>
+                    <tr><th>完整性验证</th><td>AEAD 标签 + SHA-256</td></tr>
+                    <tr><th>随机数</th><td>macOS SecRandomCopyBytes</td></tr>
+                    <tr><th>最低系统</th><td>macOS 15.6</td></tr>
+                    <tr><th>联网行为</th><td>当前版本不实现网络请求或遥测</td></tr>
+                </table>
+            </div>
+            <div class="callout" style="margin-top:24px"><strong>重要提示：</strong>任何软件都不能保证绝对安全。请始终保留独立备份。SSD 磨损均衡和写时复制文件系统也可能使物理擦除无法得到保证。</div>
+        </div>
+    </section>
+
+    <section class="section" id="install">
+        <div class="container">
+            <div class="reveal visible"><div class="section-label">安装</div><h2 class="section-title">下载、拖入、开始使用。</h2></div>
+            <div class="steps-grid">
+                <div class="step-card reveal visible"><div class="step-number">1</div><h3>下载 DMG</h3><p>从 Gitee v1.0 发行版下载经过 Apple Developer ID 签名和公证的安装镜像。</p></div>
+                <div class="step-card reveal visible"><div class="step-number">2</div><h3>安装应用</h3><p>打开 DMG，将 4869 拖入 Applications（应用程序）文件夹。</p></div>
+                <div class="step-card reveal visible"><div class="step-number">3</div><h3>加密文件夹</h3><p>打开 4869，选择文件夹并设置至少 16 个字符的强密码。请提前做好备份。</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="advanced">
+        <div class="container">
+            <div class="reveal visible"><div class="section-label">高级保护</div><h2 class="section-title">诱饵密码与恢复密钥完整指南。</h2><p class="section-subtitle">两者用途不同：诱饵密码打开一套无敏感内容的视图；恢复密钥用于忘记真实密码后的紧急恢复。</p></div>
+            <div class="feature-grid">
+                <div class="glass-card reveal visible"><div class="feature-icon">🎭</div><h3>设置诱饵密码</h3>
+                    <ol style="color:var(--text-secondary);line-height:1.8;padding-left:22px">
+                        <li>选择未加密文件夹，输入并确认真实密码。</li><li>展开“Plausible Deniability（合理否认）”。</li><li>设置另一个至少 16 个字符的诱饵密码；它不能与真实密码相同。</li><li>正常执行加密。当前版本会为诱饵视图创建无敏感内容的 <code>README.txt</code>。</li><li>以后输入诱饵密码，只会看到该占位文件，保险库仍保持 <code>.4869</code> 状态；输入真实密码才会恢复真实文件。</li>
+                    </ol>
+                </div>
+                <div class="glass-card reveal visible"><div class="feature-icon">⚠️</div><h3>诱饵功能的边界</h3><p>诱饵不是第二份备份，也不能隐藏“设备上存在加密数据”这一事实。保险库元数据不会直接说明诱饵槽是否真实，但备份、日志、文件历史、操作习惯等外部线索仍可能暴露信息。</p><p style="margin-top:12px">正式使用前请分别测试两个密码。不要复用密码，也不要把某个保险库的诱饵密码用于其他保险库的真实密码。</p></div>
+                <div class="glass-card reveal visible"><div class="feature-icon">🛡️</div><h3>生成恢复密钥</h3>
+                    <ol style="color:var(--text-secondary);line-height:1.8;padding-left:22px">
+                        <li>系统必须是 macOS 26 或更高版本；旧系统不会开放此开关。</li><li>加密前启用“Post-Quantum Recovery Key”。</li><li>加密成功后，在保存面板中导出 <code>.4869-recovery-key</code> 文件。</li><li>把它与保险库分开保存，例如离线加密移动硬盘；不要把唯一副本放在保险库旁边。</li><li>日常仍使用密码解锁，恢复文件应只作为紧急凭据。</li>
+                    </ol>
+                </div>
+                <div class="glass-card reveal visible"><div class="feature-icon">🔑</div><h3>使用恢复密钥</h3>
+                    <ol style="color:var(--text-secondary);line-height:1.8;padding-left:22px">
+                        <li>在 4869 中选择锁定的 <code>.4869</code> 保险库。</li><li>不要输入密码，点击“Recovery Key”。</li><li>选择与该保险库匹配的 <code>.4869-recovery-key</code> 文件。</li><li>4869 会验证密钥、解密清单，在隔离暂存区恢复并校验全部文件，验证完成后才提交恢复结果。</li>
+                    </ol><p style="margin-top:12px"><strong>同时获得保险库和恢复密钥的人可以解密数据。</strong>遗失的恢复密钥无法从保险库重新生成；新建保险库会产生不同的恢复密钥。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="reveal visible"><div class="section-label">常见问题</div><h2 class="section-title">使用前需要了解的事项。</h2></div>
+            <div class="faq-list">
+                <div class="faq-item"><button class="faq-question">忘记密码后还能恢复吗？<span class="chevron">⌄</span></button><div class="faq-answer"><div class="faq-answer-inner">如果没有密码或事先导出的恢复密钥，数据无法恢复。4869 没有后门或“找回密码”服务。</div></div></div>
+                <div class="faq-item"><button class="faq-question">4869 会上传我的文件吗？<span class="chevron">⌄</span></button><div class="faq-answer"><div class="faq-answer-inner">不会。当前版本没有服务器、账号、遥测、分析或网络请求，加密功能可完全离线运行。</div></div></div>
+                <div class="faq-item"><button class="faq-question">支持哪些 Mac？<span class="chevron">⌄</span></button><div class="faq-answer"><div class="faq-answer-inner">DMG 同时包含 Apple Silicon 与 Intel 架构，最低需要 macOS 15.6；后量子恢复功能需要 macOS 26 或更高版本。</div></div></div>
+                <div class="faq-item"><button class="faq-question">如何报告问题？<span class="chevron">⌄</span></button><div class="faq-answer"><div class="faq-answer-inner">请前往 <a href="https://gitee.com/aaron0047/4869/issues" style="color:var(--accent-cyan)">Gitee Issues</a>。安全漏洞请避免公开披露敏感细节。</div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section cta-section">
+        <div class="container"><div class="cta-box reveal visible"><h2>开始保护你的本地文件</h2><p>下载已经 Apple 公证的 4869 v1.0 通用版。</p><div class="hero-actions"><a href="https://gitee.com/aaron0047/4869/releases/download/v1.0/4869-1.0.dmg" class="btn btn-primary"><span></span>直接下载 DMG</a></div></div></div>
+    </section>
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 4869</p><p><a href="https://gitee.com/aaron0047/4869">项目主页</a> · <a href="https://gitee.com/aaron0047/4869/issues">问题反馈</a> · <a href="https://github.com/AaronYang47/4869">GitHub</a></p></div></div></footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
