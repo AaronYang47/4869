@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — 4869</title>
+    <meta name="description" content="4869 Privacy Policy. We collect nothing. No accounts, no servers, no telemetry, no analytics, no network access.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230a84ff'/><text x='50' y='68' font-size='48' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>4869</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="bg-atmosphere"></div>
+
+    <nav class="navbar scrolled">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <span class="nav-brand-icon">🔒</span>
+                4869
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#security">Security</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <section style="padding: 120px 0 80px;">
+        <div class="container">
+            <div class="legal-content reveal visible">
+                <h1>Privacy Policy</h1>
+                <p class="last-updated">Last updated: January 1, 2025</p>
+
+                <div class="callout">
+                    <strong>The short version:</strong> The current version of 4869 does not collect, transmit, or share personal data. It has no servers, accounts, telemetry, analytics, or implemented network requests. Local vault data and preferences remain on your Mac.
+                </div>
+
+                <h2>1. Overview</h2>
+                <p>
+                    4869 ("the App") is a local-only file encryption application for macOS. The current version contains no code that sends information from your computer to an external service.
+                </p>
+                <p>
+                    This Privacy Policy describes how the App handles data, including data processed locally on your device and how that data is protected.
+                </p>
+
+                <h2>2. Data We Do Not Collect</h2>
+                <p>The App explicitly does <strong>not</strong> collect or process any of the following:</p>
+                <ul>
+                    <li><strong>Personal information:</strong> No name, email, phone number, or identity is ever requested or stored.</li>
+                    <li><strong>Account data:</strong> The App has no account system. No login, registration, or authentication is required.</li>
+                    <li><strong>Usage analytics:</strong> No telemetry, crash reports, usage statistics, or behavioral data are collected.</li>
+                    <li><strong>Network data:</strong> The App makes zero network requests. There are no API endpoints, no servers, and no cloud infrastructure.</li>
+                    <li><strong>Advertising data:</strong> The App contains no advertisements and does not participate in any ad network.</li>
+                    <li><strong>Device information:</strong> No hardware identifiers, MAC addresses, serial numbers, or system profiles are read.</li>
+                    <li><strong>Location data:</strong> The App does not access, request, or store any location information.</li>
+                </ul>
+
+                <h2>3. Data Stored on Your Device</h2>
+                <p>The following data is stored locally on your Mac. None of it is ever transmitted anywhere.</p>
+
+                <h3>3.1 Vault Files</h3>
+                <p>
+                    When you encrypt a folder, the App creates encrypted vault data (a <code>.4869</code> package) at the location of the original folder. This data is protected by your password through scrypt key derivation and AES-256-GCM + ChaCha20-Poly1305 encryption. The App does not retain a copy of your plaintext files or your password after the encryption process completes.
+                </p>
+
+                <h3>3.2 Post-Quantum Recovery Key (Optional)</h3>
+                <p>
+                    If you enable post-quantum recovery, a recovery key document is generated and offered for you to save to a location of your choosing. The App does not retain this key. If you lose both your password and the recovery key, your data is permanently unrecoverable.
+                </p>
+
+                <h3>3.3 App Preferences</h3>
+                <p>
+                    The App stores a minimal set of preferences using macOS <code>UserDefaults</code>:
+                </p>
+                <ul>
+                    <li>Temporary unlock duration preference (1, 5, 15, or 30 minutes).</li>
+                    <li>Path of a folder currently being encrypted (for crash recovery only; cleared immediately after encryption completes).</li>
+                </ul>
+                <p>These preferences contain no sensitive personal data and are stored only on your device.</p>
+
+                <h3>3.4 Temporary Decryption Cache</h3>
+                <p>
+                    When using the temporary viewing feature, decrypted copies of your files are placed in the system temporary directory with owner-only permissions. The App removes them when the viewing session expires, during orderly App termination, or on the next launch after an interruption. Storage hardware and filesystem behavior may prevent guaranteed physical erasure.
+                </p>
+
+                <h2>4. How Your Data Is Protected</h2>
+                <p>The App employs industry-leading cryptographic protection for your data:</p>
+                <ul>
+                    <li><strong>scrypt key derivation</strong> (RFC 7914) with N=131,072, r=8, p=1, forcing ~128 MB of RAM per password verification attempt.</li>
+                    <li><strong>Double-layer authenticated encryption</strong> using AES-256-GCM (inner) and ChaCha20-Poly1305 (outer) for every file chunk.</li>
+                    <li><strong>HKDF-SHA512</strong> for domain-separated sub-key derivation.</li>
+                    <li><strong>Cryptographically secure random number generation</strong> via <code>SecRandomCopyBytes</code>.</li>
+                    <li><strong>Core dump protection</strong> via <code>setrlimit(RLIMIT_CORE, 0)</code> to prevent memory being written to disk.</li>
+                    <li><strong>Best-effort memory handling</strong> with <code>memset_s</code> zeroing for mutable key buffers and narrow key lifetimes. Copies managed internally by Swift or CryptoKit cannot be guaranteed to be overwritten.</li>
+                    <li><strong>Secure file deletion</strong> with random overwrite, truncation, and unlinking.</li>
+                    <li><strong>Cryptographic self-test</strong> on every App launch to verify algorithm integrity.</li>
+                </ul>
+
+                <h2>5. Third-Party Services</h2>
+                <p>
+                    The App does <strong>not</strong> use any third-party services. There are no SDKs, no libraries that make network calls, no analytics platforms, no advertising networks, and no cloud providers involved in the App's operation.
+                </p>
+                <p>
+                    The App relies solely on Apple's built-in frameworks (<code>CryptoKit</code>, <code>CommonCrypto</code>, <code>Security</code>, <code>Foundation</code>, <code>AppKit</code>) which are part of macOS and subject to Apple's own privacy standards.
+                </p>
+
+                <h2>6. Children's Privacy</h2>
+                <p>
+                    The App is not directed at children under the age of 13. The App does not knowingly collect any personal information from anyone, including children. If you believe that a child has provided personal information to the App, please be assured that the App has no means of receiving, storing, or processing such information.
+                </p>
+
+                <h2>7. Your Rights</h2>
+                <p>Because the App collects no data, the following rights are inherently satisfied:</p>
+                <ul>
+                    <li><strong>Right to access:</strong> All your data is on your device. You have full access at all times.</li>
+                    <li><strong>Right to deletion:</strong> Delete the App and its vault files to remove all data permanently.</li>
+                    <li><strong>Right to data portability:</strong> Your encrypted vault files are portable and can be moved or copied freely.</li>
+                    <li><strong>Right to opt-out:</strong> There is nothing to opt out of — no data is collected.</li>
+                </ul>
+                <p>
+                    The App is compliant with the General Data Protection Regulation (GDPR), the California Consumer Privacy Act (CCPA), and all other major privacy regulations by virtue of its zero-data-collection design.
+                </p>
+
+                <h2>8. Data Breach Notification</h2>
+                <p>
+                    Because the App stores no data on any server and has no network capability, a server-side data breach affecting the App is structurally impossible. If a vulnerability is discovered in the App itself, it will be disclosed on this website and through the App's GitHub repository.
+                </p>
+
+                <h2>9. Changes to This Policy</h2>
+                <p>
+                    If the App's data practices ever change (for example, if a future version adds optional cloud sync), this Privacy Policy will be updated accordingly and the "Last updated" date will reflect the change. You will always be able to find the current version of this policy on this page.
+                </p>
+
+                <h2>10. Contact</h2>
+                <p>
+                    If you have questions about this Privacy Policy, please contact:
+                </p>
+                <div class="callout">
+                    <strong>GitHub:</strong> <a href="https://github.com/AaronYang47/4869" style="color: var(--accent-cyan);">github.com/AaronYang47/4869</a><br>
+                    <strong>Support:</strong> <a href="https://github.com/AaronYang47/4869/issues" style="color: var(--accent-cyan);">GitHub Issues</a><br>
+                    <strong>Support Page:</strong> <a href="support.html" style="color: var(--accent-cyan);">aaronyang47.github.io/4869/support.html</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none;">
+                <p>&copy; 2024–2025 4869. All rights reserved.</p>
+                <span class="footer-badge">🔒 Zero Data Collection</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

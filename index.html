@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4869 — Local Encrypted Folder Vault for macOS</title>
+    <meta name="description" content="4869 is a local encrypted folder vault for macOS. scrypt key derivation, AES-256-GCM + ChaCha20-Poly1305 double-layer encryption, post-quantum recovery, and plausible deniability. The app performs no network requests.">
+    <meta name="keywords" content="encryption, AES-256, ChaCha20, scrypt, macOS, vault, folder encryption, post-quantum, plausible deniability, local encryption, zero-knowledge">
+    <meta property="og:title" content="4869 — Local Encrypted Folder Vault">
+    <meta property="og:description" content="Local folder encryption for macOS. No cloud service, accounts, telemetry, or tracking.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://aaronyang47.github.io/4869/">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="bg-atmosphere"></div>
+
+    <!-- ════════ NAVIGATION ════════ -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="images/logo.png" alt="4869 Logo" class="nav-logo-img">
+                4869
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- ════════ HERO ════════ -->
+    <section class="hero" id="home">
+        <div>
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Now available for macOS
+            </div>
+            <h1>Your files.<br><span class="gradient">Protected locally.</span></h1>
+            <p class="hero-desc">
+                4869 turns any folder on your Mac into a fortified encrypted vault.
+                No cloud. No servers. No accounts. Just uncompromising cryptography
+                that keeps your data yours.
+            </p>
+            <div class="hero-actions">
+                <a href="https://github.com/AaronYang47/4869/releases/download/v1.0/4869-1.0.dmg" class="btn btn-primary">
+                    <span></span> Download for Mac
+                </a>
+                <a href="#security" class="btn btn-secondary">
+                    Explore the Cryptography →
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value" data-count="256" data-suffix="-bit">0-bit</div>
+                    <div class="hero-stat-label">Encryption</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value" data-count="128" data-suffix=" MB">0 MB</div>
+                    <div class="hero-stat-label">Memory-Hard KDF</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value" data-count="0" data-suffix="">0</div>
+                    <div class="hero-stat-label">Servers Required</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">PQ-Safe</div>
+                    <div class="hero-stat-label">Post-Quantum Ready</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ FEATURES ════════ -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">Features</div>
+                <h2 class="section-title">Built for people who take privacy seriously.</h2>
+                <p class="section-subtitle">
+                    Every feature in 4869 exists to give you absolute control over your data.
+                    From the cryptography to the user experience, nothing is compromised.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Double-Layer Encryption</h3>
+                    <p>Every file is encrypted with AES-256-GCM inside ChaCha20-Poly1305. Even if one cipher is ever broken, your data remains protected by the other — defense in depth at the protocol level.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Memory-Hard Key Derivation</h3>
+                    <p>Your password is stretched through scrypt (RFC 7914) with N=131,072, forcing 128 MB of RAM per attempt. GPU and ASIC brute-force attacks become economically prohibitive.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🎭</div>
+                    <h3>Plausible Deniability</h3>
+                    <p>Set up a decoy password that unlocks harmless placeholder files. An attacker cannot determine from the vault metadata whether the decoy or the real data was revealed.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Post-Quantum Recovery</h3>
+                    <p>Optional recovery key powered by XWing-MLKEM768-X25519 hybrid KEM. If you forget your password, your data survives — and it's ready for the quantum computing era.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🗑️</div>
+                    <h3>Secure Deletion</h3>
+                    <p>Originals are overwritten with random data, truncated, then unlinked. Effectiveness depends on the storage hardware and filesystem; SSDs and copy-on-write filesystems cannot guarantee complete erasure.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">📁</div>
+                    <h3>Native Finder Integration</h3>
+                    <p>Encrypted folders become <code>.4869</code> packages that open directly in 4869. Double-click to unlock, just like opening any document on your Mac.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Temporary Viewing Sessions</h3>
+                    <p>Peek at your files without fully unlocking. Temporary sessions remove decrypted copies after 1–30 minutes, during orderly app termination, or on the next launch after an interruption.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🔌</div>
+                    <h3>100% Offline</h3>
+                    <p>No internet connection required. No telemetry, analytics, accounts, or network requests are implemented in the app.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">✅</div>
+                    <h3>Cryptographic Self-Test</h3>
+                    <p>On every launch, 4869 verifies SHA-256, AES-GCM, ChaCha20-Poly1305, and scrypt against known test vectors. If anything fails, the app refuses to operate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ SECURITY ARCHITECTURE ════════ -->
+    <section class="section" id="security">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">Security Architecture</div>
+                <h2 class="section-title">Cryptography you can audit.</h2>
+                <p class="section-subtitle">
+                    4869 uses only well-established, peer-reviewed algorithms from Apple's
+                    CryptoKit and CommonCrypto frameworks. No custom crypto. No proprietary
+                    algorithms. No obfuscation masquerading as security.
+                </p>
+            </div>
+
+            <!-- Crypto Stack -->
+            <div class="reveal" style="margin-bottom: 60px;">
+                <h3 style="font-size: 20px; margin-bottom: 24px;">Encryption Pipeline (Layer by Layer)</h3>
+                <div class="crypto-stack">
+                    <div class="crypto-layer">
+                        <div class="crypto-layer-num">01</div>
+                        <div>
+                            <div class="crypto-layer-title">Password Validation</div>
+                            <div class="crypto-layer-desc">Minimum 16 characters, entropy estimation ≥ 80 bits. Rejects common, repeated, and sequential passwords.</div>
+                        </div>
+                        <div class="crypto-layer-tag tag-excellent">PasswordPolicy</div>
+                    </div>
+
+                    <div class="crypto-layer">
+                        <div class="crypto-layer-num">02</div>
+                        <div>
+                            <div class="crypto-layer-title">scrypt Key Derivation (RFC 7914)</div>
+                            <div class="crypto-layer-desc">N=131,072 · r=8 · p=1 · dkLen=32 bytes. Forces ~128 MB RAM per derivation attempt. With application pepper mixed into the salt.</div>
+                        </div>
+                        <div class="crypto-layer-tag tag-excellent">Memory-Hard</div>
+                    </div>
+
+                    <div class="crypto-layer">
+                        <div class="crypto-layer-num">03</div>
+                        <div>
+                            <div class="crypto-layer-title">Master Key Generation</div>
+                            <div class="crypto-layer-desc">64-byte cryptographically random master key generated via <code>SecRandomCopyBytes</code>. Never derived from or stored alongside the password.</div>
+                        </div>
+                        <div class="crypto-layer-tag tag-strong">CSPRNG</div>
+                    </div>
+
+                    <div class="crypto-layer">
+                        <div class="crypto-layer-num">04</div>
+                        <div>
+                            <div class="crypto-layer-title">Key Wrapping (AES-256-GCM)</div>
+                            <div class="crypto-layer-desc">Master key sealed with the scrypt-derived key using AES-256-GCM authenticated encryption. Includes a verification check value.</div>
+                        </div>
+                        <div class="crypto-layer-tag tag-strong">AEAD</div>
+                    </div>
+
+                    <div class="crypto-layer">
+                        <div class="crypto-layer-num">05</div>
+                        <div>
+                            <div class="crypto-layer-title">Per-File Key Separation (HKDF-SHA512)</div>
+                            <div class="crypto-layer-desc">Each file gets a unique sub-key derived via HKDF-SHA512 with a purpose-specific info string. Compromise of one key cannot cascade.</div>
+                        </div>
+                        <div class="crypto-layer-tag tag-strong">Key Isolation</div>
+                    </div>
+
+                    <div class="crypto-layer">
+                        <div class="crypto-layer-num">06</div>
+                        <div>
+                            <div class="crypto-layer-title">Chunked Double-Layer Encryption</div>
+                            <div class="crypto-layer-desc">Files split into 4 MB chunks. Each chunk sealed with AES-256-GCM (inner), then wrapped in ChaCha20-Poly1305 (outer). Per-chunk AAD binds position and path.</div>
+                        </div>
+                        <div class="crypto-layer-tag tag-excellent">Dual AEAD</div>
+                    </div>
+
+                    <div class="crypto-layer">
+                        <div class="crypto-layer-num">07</div>
+                        <div>
+                            <div class="crypto-layer-title">SHA-256 Integrity Verification</div>
+                            <div class="crypto-layer-desc">Every file's plaintext hash is stored inside the encrypted manifest. Decryption fails if even a single byte is altered.</div>
+                        </div>
+                        <div class="crypto-layer-tag tag-strong">Tamper-Proof</div>
+                    </div>
+
+                    <div class="crypto-layer">
+                        <div class="crypto-layer-num">08</div>
+                        <div>
+                            <div class="crypto-layer-title">Post-Quantum Recovery (Optional)</div>
+                            <div class="crypto-layer-desc">XWing-MLKEM768-X25519 hybrid KEM wraps the master key. AES-256-GCM sealed envelope with HKDF-SHA512 derived wrapping key. Resistant to Shor's algorithm.</div>
+                        </div>
+                        <div class="crypto-layer-tag tag-quantum">Quantum-Safe</div>
+                    </div>
+
+                    <div class="crypto-layer">
+                        <div class="crypto-layer-num">09</div>
+                        <div>
+                            <div class="crypto-layer-title">Metadata Concealment</div>
+                            <div class="crypto-layer-desc">File names, directory structure, file counts, and total sizes are encrypted inside the manifest. An attacker sees only opaque ciphertext.</div>
+                        </div>
+                        <div class="crypto-layer-tag tag-excellent">Zero Leakage</div>
+                    </div>
+
+                    <div class="crypto-layer">
+                        <div class="crypto-layer-num">10</div>
+                        <div>
+                            <div class="crypto-layer-title">Runtime Hardening</div>
+                            <div class="crypto-layer-desc">Core dumps disabled (<code>setrlimit RLIMIT_CORE=0</code>). <code>umask 0077</code> for owner-only files. Mutable key buffers are zeroed on a best-effort basis.</div>
+                        </div>
+                        <div class="crypto-layer-tag tag-strong">Hardened</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Specs Table -->
+            <div class="reveal glass-card" style="overflow-x: auto;">
+                <h3 style="font-size: 20px; margin-bottom: 24px;">Technical Specifications</h3>
+                <table class="specs-table">
+                    <tr>
+                        <th>Encryption Algorithm</th>
+                        <td>AES-256-GCM + ChaCha20-Poly1305 (double-layer AEAD)</td>
+                    </tr>
+                    <tr>
+                        <th>Key Derivation</th>
+                        <td>scrypt (RFC 7914)</td>
+                    </tr>
+                    <tr>
+                        <th>scrypt Parameters</th>
+                        <td>N = 131,072 (2¹⁷) · r = 8 · p = 1</td>
+                    </tr>
+                    <tr>
+                        <th>Memory per Derivation</th>
+                        <td>~128 MB</td>
+                    </tr>
+                    <tr>
+                        <th>Master Key Size</th>
+                        <td>512 bits (64 bytes), CSPRNG-generated</td>
+                    </tr>
+                    <tr>
+                        <th>Sub-Key Derivation</th>
+                        <td>HKDF-SHA512 with domain-separated info strings</td>
+                    </tr>
+                    <tr>
+                        <th>Salt Size</th>
+                        <td>256 bits (32 bytes) per vault, CSPRNG-generated</td>
+                    </tr>
+                    <tr>
+                        <th>Chunk Size</th>
+                        <td>4 MB (4,194,304 bytes)</td>
+                    </tr>
+                    <tr>
+                        <th>Integrity Hash</th>
+                        <td>SHA-256 (stored in encrypted manifest)</td>
+                    </tr>
+                    <tr>
+                        <th>Post-Quantum Recovery</th>
+                        <td>XWing-MLKEM768-X25519-HKDFSHA512-AES256GCM</td>
+                    </tr>
+                    <tr>
+                        <th>Legacy PBKDF2 (v1 vaults)</th>
+                        <td>PBKDF2-HMAC-SHA512, 1,200,000 iterations</td>
+                    </tr>
+                    <tr>
+                        <th>Minimum Password Length</th>
+                        <td>16 characters, ≥ 80 bits estimated entropy</td>
+                    </tr>
+                    <tr>
+                        <th>Random Number Generator</th>
+                        <td>SecRandomCopyBytes (macOS cryptographically secure random generator)</td>
+                    </tr>
+                    <tr>
+                        <th>Format Version</th>
+                        <td>v4 (chunked RFC 7914 scrypt + dual AEAD + HKDF-SHA512)</td>
+                    </tr>
+                    <tr>
+                        <th>Platform</th>
+                        <td>macOS 15.6+ (post-quantum recovery requires macOS 26+)</td>
+                    </tr>
+                    <tr>
+                        <th>Data Collection</th>
+                        <td>None — zero network access, zero telemetry</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ HOW IT WORKS ════════ -->
+    <section class="section" id="how-it-works">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">How It Works</div>
+                <h2 class="section-title">Lock in seconds. Unlock in seconds.</h2>
+                <p class="section-subtitle">
+                    Three steps. No accounts, no cloud, no learning curve.
+                </p>
+            </div>
+
+            <div class="reveal" style="max-width: 680px;">
+                <div class="step-flow">
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h3>Drop a folder into 4869</h3>
+                            <p>Drag any folder onto the app window, or use the file picker. 4869 scans every file, rejects symlinks, and counts the total to be encrypted.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h3>Set a strong password</h3>
+                            <p>Choose a password of at least 16 characters. The built-in strength estimator helps you find the sweet spot between security and memorability. Optionally configure a decoy password for plausible deniability.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h3>4869 encrypts, verifies, and seals</h3>
+                            <p>Every file is encrypted in 4 MB chunks with dual AEAD. The entire vault is then test-decrypted and verified against SHA-256 hashes before any plaintext is removed. Only after verification are originals securely shredded.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">4</div>
+                        <div class="step-content">
+                            <h3>Double-click to unlock anytime</h3>
+                            <p>Your folder becomes a <code>.4869</code> package with a custom locked icon. Double-click it in Finder, enter your password, and your files are restored exactly as they were — directory structure, timestamps, everything.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code Example: Metadata Structure -->
+            <div class="reveal" style="margin-top: 60px;">
+                <h3 style="font-size: 20px; margin-bottom: 16px;">What a vault looks like on disk</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 15px;">
+                    The vault metadata (<code>.4869.json</code>) contains only what's necessary for decryption.
+                    File names, paths, counts, and sizes live inside the encrypted manifest —
+                    an attacker examining the metadata learns nothing about your data.
+                </p>
+<pre><code>{
+    "formatVersion": 4,
+    "cryptoSuite": "4869-v4-chunked-rfc7914-scrypt-aes256gcm-chacha20poly1305-hkdfsha512",
+    "scryptN": 131072,
+    "scryptR": 8,
+    "scryptP": 1,
+    "cipher": "AES-256-GCM + ChaCha20-Poly1305",
+    "wrappedMasterKey": "<base64: AES-256-GCM sealed master key>",
+    "vaultCheck": "<base64: AEAD authentication check value>",
+    "encryptedManifest": "<base64: dual-layer encrypted file manifest>",
+    "decoySalt": "<base64: indistinguishable from real or random>",
+    "decoyWrappedKey": "<base64: indistinguishable from real or random>",
+    "decoyEncryptedManifest": "<base64: indistinguishable from real or random>",
+    "postQuantumRecoveryEnvelope": "<base64: optional PQ recovery envelope>"
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ COMPARISON ════════ -->
+    <section class="section" id="comparison">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">Why 4869</div>
+                <h2 class="section-title">How 4869 compares to alternatives.</h2>
+                <p class="section-subtitle">
+                    Most "encryption" apps trust a server somewhere. 4869 trusts nothing but math.
+                </p>
+            </div>
+
+            <div class="reveal glass-card" style="overflow-x: auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Capability</th>
+                            <th>4869</th>
+                            <th>Cloud Vault Apps</th>
+                            <th>Built-in FileVault</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Works fully offline</td>
+                            <td class="check">✓ Yes</td>
+                            <td class="cross">✗ Requires internet</td>
+                            <td class="check">✓ Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Per-folder encryption</td>
+                            <td class="check">✓ Any folder</td>
+                            <td class="check">✓ Selected folders</td>
+                            <td class="cross">✗ Entire disk only</td>
+                        </tr>
+                        <tr>
+                            <td>Double-layer AEAD</td>
+                            <td class="check">✓ AES-GCM + ChaCha20</td>
+                            <td class="cross">✗ Single algorithm</td>
+                            <td class="cross">✗ Single algorithm</td>
+                        </tr>
+                        <tr>
+                            <td>Memory-hard KDF (scrypt)</td>
+                            <td class="check">✓ 128 MB</td>
+                            <td class="cross">✗ PBKDF2 (low cost)</td>
+                            <td class="check">✓ Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Plausible deniability</td>
+                            <td class="check">✓ Decoy passwords</td>
+                            <td class="cross">✗ Not available</td>
+                            <td class="cross">✗ Not available</td>
+                        </tr>
+                        <tr>
+                            <td>Post-quantum recovery</td>
+                            <td class="check">✓ XWing hybrid KEM</td>
+                            <td class="cross">✗ Not available</td>
+                            <td class="cross">✗ Not available</td>
+                        </tr>
+                        <tr>
+                            <td>No servers / no account</td>
+                            <td class="check">✓ Zero infrastructure</td>
+                            <td class="cross">✗ Server-dependent</td>
+                            <td class="check">✓ Yes</td>
+                        </tr>
+                        <tr>
+                            <td>No telemetry / analytics</td>
+                            <td class="check">✓ Zero tracking</td>
+                            <td class="cross">✗ Often collected</td>
+                            <td class="check">✓ Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Secure file shredding</td>
+                            <td class="check">✓ Overwrite + unlink</td>
+                            <td class="cross">✗ Simple delete</td>
+                            <td class="cross">✗ N/A</td>
+                        </tr>
+                        <tr>
+                            <td>Crypto self-test on launch</td>
+                            <td class="check">✓ SHA/AES/ChaCha/scrypt</td>
+                            <td class="cross">✗ Not performed</td>
+                            <td class="cross">✗ Not performed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ FAQ ════════ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">FAQ</div>
+                <h2 class="section-title">Questions, answered.</h2>
+                <p class="section-subtitle">
+                    Everything you need to know about how 4869 protects your data.
+                </p>
+            </div>
+
+            <div class="reveal" style="max-width: 760px;">
+                <div class="faq-item open">
+                    <button class="faq-question">
+                        Can I recover my files if I forget my password?
+                        <span class="chevron">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Without a password or recovery key, your data is mathematically unrecoverable — this is by design. However, if you enabled <strong>Post-Quantum Recovery</strong> when encrypting, you can use the exported recovery key to unlock the vault at any time. The recovery key uses XWing-MLKEM768-X25519 hybrid key encapsulation. We strongly recommend enabling it and storing the key in a safe location.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Does 4869 send any data to the internet?
+                        <span class="chevron">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            No. The current version implements no servers, API calls, telemetry, crash reporting, analytics, or other network requests. You can run 4869 with your network connection disabled; its local encryption features work identically.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What happens to my original files after encryption?
+                        <span class="chevron">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            After every encrypted file has been verified by test-decrypting it and checking its SHA-256 hash, 4869 securely shreds the originals. Each file is overwritten with cryptographically random data, truncated to zero bytes, then unlinked from the filesystem. This makes recovery with forensic tools (TestDisk, PhotoRec, Autopsy) impractical. On SSDs with wear-leveling, no software can guarantee 100% destruction, but 4869 raises the bar as high as the hardware allows.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is plausible deniability and how does the decoy work?
+                        <span class="chevron">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            When you set a decoy password, 4869 creates a second, hidden encrypted "slot" inside the vault metadata. If you are ever coerced into revealing your password, you can provide the decoy password instead. It will unlock a separate set of harmless files (either files you designate or a default placeholder). The vault metadata is designed so that an examiner cannot determine from its structure whether the real or decoy password was used. Even when no decoy is configured, the decoy fields are filled with random data that is indistinguishable from real encrypted content.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Why use two encryption algorithms (AES-GCM and ChaCha20)?
+                        <span class="chevron">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Defense in depth. Each file chunk is first sealed with AES-256-GCM, then the result is wrapped in ChaCha20-Poly1305. Both are authenticated encryption schemes (AEAD) — they provide confidentiality and integrity simultaneously. Using two independent algorithms means that even if a catastrophic vulnerability were discovered in one cipher, the other would still protect your data. This is the same principle behind TLS 1.3's hybrid designs.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is scrypt better than PBKDF2?
+                        <span class="chevron">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            For password-based encryption, yes. PBKDF2 is CPU-hard but not memory-hard — an attacker can build specialized hardware (ASICs) that compute millions of PBKDF2 attempts in parallel for very little cost. scrypt (RFC 7914) is both CPU-hard and memory-hard: each derivation attempt requires ~128 MB of RAM, which means an attacker would need to provision enormous amounts of memory to parallelize brute-force attacks. A 24 GB GPU can only run about 180 concurrent scrypt instances, making large-scale attacks economically impractical.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What does "post-quantum ready" mean?
+                        <span class="chevron">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Traditional public-key cryptography (RSA, ECC, Diffie-Hellman) can be broken by a sufficiently powerful quantum computer using Shor's algorithm. 4869's optional recovery system uses XWing, a hybrid Key Encapsulation Mechanism that combines ML-KEM-768 (NIST's post-quantum standard, formerly CRYSTALS-Kyber) with X25519 (classical elliptic curve). This means the recovery key remains secure even if large-scale quantum computers become a reality. XWing is available starting from macOS 26.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can 4869 encrypt any type of file?
+                        <span class="chevron">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            4869 can encrypt any regular file — documents, photos, videos, databases, archives, source code, anything. It preserves the complete directory structure (including empty folders) and file modification timestamps. The only restriction is that symbolic links are rejected for security reasons. There is no file size limit; large files are processed in 4 MB chunks to keep memory usage flat.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What if the app crashes during encryption?
+                        <span class="chevron">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            4869 is designed for crash safety. During encryption, all work happens in temporary directories. The original files are not touched until every encrypted chunk has been written, verified by test-decryption, and confirmed via SHA-256. Only then are originals removed. If the app crashes at any point, the temporary data is cleaned up on the next launch, and your original files remain completely intact. The app also supports a rollback mechanism that re-decrypts committed data if plaintext cleanup fails.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is 4869 open source?
+                        <span class="chevron">⌄</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            The website, release downloads, security documentation, and issue tracker are available on <a href="https://github.com/AaronYang47/4869" style="color: var(--accent-cyan);">GitHub</a>. The cryptographic design is documented for independent review.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ CTA ════════ -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-box reveal">
+                <h2>Ready to take control of your data?</h2>
+                <p>Download 4869 and encrypt your first folder in under a minute.</p>
+                <div class="hero-actions">
+                    <a href="https://github.com/AaronYang47/4869/releases/download/v1.0/4869-1.0.dmg" class="btn btn-primary">
+                        <span></span> Download for Mac
+                    </a>
+                    <a href="support.html" class="btn btn-secondary">Get Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ FOOTER ════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-brand">
+                        <img src="images/logo.png" alt="4869 Logo" class="nav-logo-img">
+                        4869
+                    </div>
+                    <p>Local folder encryption for macOS. Your files stay under your control.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="terms.html#disclaimer">Disclaimer</a></li>
+                        <li><a href="terms.html#license">License</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="support.html">Support</a></li>
+                        <li><a href="https://github.com/AaronYang47/4869">GitHub</a></li>
+                        <li><a href="https://github.com/AaronYang47/4869/issues">Issues</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024–2025 4869. All rights reserved.</p>
+                <span class="footer-badge">🔒 Zero Data Collection</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
