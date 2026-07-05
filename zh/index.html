@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4869 — macOS 本地加密文件夹</title>
-    <meta name="description" content="4869 是适用于 macOS 的本地文件夹加密工具，支持双层认证加密、诱饵密码与可选后量子恢复。">
-    <meta name="keywords" content="encryption, AES-256, ChaCha20, scrypt, macOS, vault, folder encryption, post-quantum, plausible deniability, local encryption, zero-knowledge">
-    <meta property="og:title" content="4869 — Local Encrypted Folder Vault">
-    <meta property="og:description" content="Local folder encryption for macOS. No cloud service, accounts, telemetry, or tracking.">
+    <meta name="description" content="4869 是适用于 macOS 的本地文件夹加密工具，支持双层认证加密、诱饵密码与可选的后量子恢复。应用不发起任何网络请求。">
+    <meta name="keywords" content="encryption, AES-256, ChaCha20, scrypt, macOS, vault, folder encryption, post-quantum, plausible deniability, local encryption, zero-knowledge, 加密, 文件夹加密, 本地加密">
+    <meta property="og:title" content="4869 — 本地加密文件夹库">
+    <meta property="og:description" content="适用于 macOS 的本地文件夹加密。无云服务、无账户、无遥测、无追踪。">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://aaronyang47.github.io/4869/zh/">
     <link rel="alternate" hreflang="en" href="https://aaronyang47.github.io/4869/en/">
@@ -27,16 +27,16 @@
                 4869
             </a>
             <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#security">Security</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#advanced">Decoy &amp; Recovery</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="privacy-policy.html">Privacy</a></li>
-                <li><a href="support.html">Support</a></li>
-                <li><a href="../?lang=en" aria-label="Switch to English" data-no-translate>English</a></li>
+                <li><a href="#features">功能</a></li>
+                <li><a href="#security">安全性</a></li>
+                <li><a href="#how-it-works">工作原理</a></li>
+                <li><a href="#advanced">诱饵与恢复</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a href="privacy-policy.html">隐私</a></li>
+                <li><a href="support.html">支持</a></li>
+                <li><a href="../?lang=en" aria-label="切换到英文" data-no-translate>English</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+            <button class="nav-toggle" aria-label="切换菜单">☰</button>
         </div>
     </nav>
 
@@ -45,38 +45,38 @@
         <div>
             <div class="hero-badge">
                 <span class="dot"></span>
-                Now available for macOS
+                现已支持 macOS
             </div>
-            <h1>Your files.<br><span class="gradient">Protected locally.</span></h1>
+            <h1>您的文件。<br><span class="gradient">本地加密保护。</span></h1>
             <p class="hero-desc">
-                4869 turns any folder on your Mac into a fortified encrypted vault.
-                No cloud. No servers. No accounts. Just uncompromising cryptography
-                that keeps your data yours.
+                4869 能将 Mac 上的任意文件夹变成坚不可摧的加密保险库。
+                没有云服务，没有服务器，没有账户。只有毫不妥协的密码学，
+                让数据始终掌握在您自己手中。
             </p>
             <div class="hero-actions">
                 <a href="https://gitee.com/aaron0047/4869/releases/download/v1.0/4869-1.0.dmg" class="btn btn-primary">
-                    <span></span> Download for Mac
+                    <span></span> 下载 Mac 版
                 </a>
                 <a href="#security" class="btn btn-secondary">
-                    Explore the Cryptography →
+                    了解加密技术 →
                 </a>
             </div>
             <div class="hero-stats">
                 <div class="hero-stat">
                     <div class="hero-stat-value" data-count="256" data-suffix="-bit">0-bit</div>
-                    <div class="hero-stat-label">Encryption</div>
+                    <div class="hero-stat-label">加密强度</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-value" data-count="128" data-suffix=" MB">0 MB</div>
-                    <div class="hero-stat-label">Memory-Hard KDF</div>
+                    <div class="hero-stat-label">内存密集型 KDF</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-value" data-count="0" data-suffix="">0</div>
-                    <div class="hero-stat-label">Servers Required</div>
+                    <div class="hero-stat-label">所需服务器</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-value">PQ-Safe</div>
-                    <div class="hero-stat-label">Post-Quantum Ready</div>
+                    <div class="hero-stat-label">后量子就绪</div>
                 </div>
             </div>
         </div>
@@ -86,67 +86,67 @@
     <section class="section" id="features">
         <div class="container">
             <div class="reveal">
-                <div class="section-label">Features</div>
-                <h2 class="section-title">Built for people who take privacy seriously.</h2>
+                <div class="section-label">功能特性</div>
+                <h2 class="section-title">为重视隐私的人而生。</h2>
                 <p class="section-subtitle">
-                    Every feature in 4869 exists to give you absolute control over your data.
-                    From the cryptography to the user experience, nothing is compromised.
+                    4869 的每一项功能，都是为了让您对自己的数据拥有绝对的控制权。
+                    从密码学到用户体验，没有任何妥协。
                 </p>
             </div>
 
             <div class="feature-grid">
                 <div class="feature-card reveal">
                     <div class="feature-icon">🔐</div>
-                    <h3>Double-Layer Encryption</h3>
-                    <p>Every file is encrypted with AES-256-GCM inside ChaCha20-Poly1305. Even if one cipher is ever broken, your data remains protected by the other — defense in depth at the protocol level.</p>
+                    <h3>双层加密</h3>
+                    <p>每个文件先用 AES-256-GCM 加密，再由 ChaCha20-Poly1305 包裹。即使其中一种加密算法将来被攻破，您的数据仍受另一种算法保护——这是协议级别的纵深防御。</p>
                 </div>
 
                 <div class="feature-card reveal">
                     <div class="feature-icon">🧠</div>
-                    <h3>Memory-Hard Key Derivation</h3>
-                    <p>Your password is stretched through scrypt (RFC 7914) with N=131,072, forcing 128 MB of RAM per attempt. GPU and ASIC brute-force attacks become economically prohibitive.</p>
+                    <h3>内存密集型密钥派生</h3>
+                    <p>您的密码通过 scrypt（RFC 7914）进行扩展，参数 N=131,072，每次尝试需占用 128 MB 内存。GPU 和 ASIC 暴力破解在成本上变得不可行。</p>
                 </div>
 
                 <div class="feature-card reveal">
                     <div class="feature-icon">🎭</div>
-                    <h3>Plausible Deniability</h3>
-                    <p>Set up a decoy password that unlocks harmless placeholder files. An attacker cannot determine from the vault metadata whether the decoy or the real data was revealed.</p>
+                    <h3>可否认性</h3>
+                    <p>设置一个诱饵密码，解锁后只会显示无害的占位文件。攻击者无法通过保险库的元数据判断展示的是诱饵内容还是真实数据。</p>
                 </div>
 
                 <div class="feature-card reveal">
                     <div class="feature-icon">🛡️</div>
-                    <h3>Post-Quantum Recovery</h3>
-                    <p>Optional recovery key powered by XWing-MLKEM768-X25519 hybrid KEM. If you forget your password, your data survives — and it's ready for the quantum computing era.</p>
+                    <h3>后量子恢复</h3>
+                    <p>基于 XWing-MLKEM768-X25519 混合 KEM 的可选恢复密钥。即使您忘记密码，数据仍可找回——并且已为量子计算时代做好准备。</p>
                 </div>
 
                 <div class="feature-card reveal">
                     <div class="feature-icon">🗑️</div>
-                    <h3>Secure Deletion</h3>
-                    <p>Originals are overwritten with random data, truncated, then unlinked. Effectiveness depends on the storage hardware and filesystem; SSDs and copy-on-write filesystems cannot guarantee complete erasure.</p>
+                    <h3>安全删除</h3>
+                    <p>原始文件会被随机数据覆盖、截断，然后从文件系统中移除。删除效果取决于存储硬件和文件系统；SSD 和写时复制文件系统无法保证完全擦除。</p>
                 </div>
 
                 <div class="feature-card reveal">
                     <div class="feature-icon">📁</div>
-                    <h3>Native Finder Integration</h3>
-                    <p>Encrypted folders become <code>.4869</code> packages that open directly in 4869. Double-click to unlock, just like opening any document on your Mac.</p>
+                    <h3>原生 Finder 集成</h3>
+                    <p>加密后的文件夹会变成 <code>.4869</code> 包，可直接用 4869 打开。双击即可解锁，就像在 Mac 上打开任何文档一样简单。</p>
                 </div>
 
                 <div class="feature-card reveal">
                     <div class="feature-icon">⏱️</div>
-                    <h3>Temporary Viewing Sessions</h3>
-                    <p>Peek at your files without fully unlocking. Temporary sessions remove decrypted copies after 1–30 minutes, during orderly app termination, or on the next launch after an interruption.</p>
+                    <h3>临时查看会话</h3>
+                    <p>无需完全解锁即可查看文件。临时会话会在 1–30 分钟后、应用正常退出时，或中断后的下次启动时，自动清除已解密的副本。</p>
                 </div>
 
                 <div class="feature-card reveal">
                     <div class="feature-icon">🔌</div>
-                    <h3>100% Offline</h3>
-                    <p>No internet connection required. No telemetry, analytics, accounts, or network requests are implemented in the app.</p>
+                    <h3>100% 离线运行</h3>
+                    <p>无需任何网络连接。应用中未实现任何遥测、分析、账户或网络请求功能。</p>
                 </div>
 
                 <div class="feature-card reveal">
                     <div class="feature-icon">✅</div>
-                    <h3>Cryptographic Self-Test</h3>
-                    <p>On every launch, 4869 verifies SHA-256, AES-GCM, ChaCha20-Poly1305, and scrypt against known test vectors. If anything fails, the app refuses to operate.</p>
+                    <h3>加密算法自检</h3>
+                    <p>每次启动时，4869 都会对照已知测试向量验证 SHA-256、AES-GCM、ChaCha20-Poly1305 和 scrypt。一旦检测到异常，应用将拒绝运行。</p>
                 </div>
             </div>
         </div>
@@ -156,42 +156,41 @@
     <section class="section" id="security">
         <div class="container">
             <div class="reveal">
-                <div class="section-label">Security Architecture</div>
-                <h2 class="section-title">Cryptography you can audit.</h2>
+                <div class="section-label">安全架构</div>
+                <h2 class="section-title">经得起审计的密码学。</h2>
                 <p class="section-subtitle">
-                    4869 uses only well-established, peer-reviewed algorithms from Apple's
-                    CryptoKit and CommonCrypto frameworks. No custom crypto. No proprietary
-                    algorithms. No obfuscation masquerading as security.
+                    4869 仅采用来自 Apple CryptoKit 和 CommonCrypto 框架的成熟、经同行评审的算法。
+                    没有自研密码学，没有私有算法，没有伪装成安全的混淆手段。
                 </p>
             </div>
 
             <!-- Crypto Stack -->
             <div class="reveal" style="margin-bottom: 60px;">
-                <h3 style="font-size: 20px; margin-bottom: 24px;">Encryption Pipeline (Layer by Layer)</h3>
+                <h3 style="font-size: 20px; margin-bottom: 24px;">加密流水线（逐层解析）</h3>
                 <div class="crypto-stack">
                     <div class="crypto-layer">
                         <div class="crypto-layer-num">01</div>
                         <div>
-                            <div class="crypto-layer-title">Password Validation</div>
-                            <div class="crypto-layer-desc">Minimum 16 characters, entropy estimation ≥ 80 bits. Rejects common, repeated, and sequential passwords.</div>
+                            <div class="crypto-layer-title">密码验证</div>
+                            <div class="crypto-layer-desc">最少 16 个字符，熵值估计 ≥ 80 位。拒绝常见、重复和连续序列的密码。</div>
                         </div>
-                        <div class="crypto-layer-tag tag-excellent">PasswordPolicy</div>
+                        <div class="crypto-layer-tag tag-excellent">密码策略</div>
                     </div>
 
                     <div class="crypto-layer">
                         <div class="crypto-layer-num">02</div>
                         <div>
-                            <div class="crypto-layer-title">scrypt Key Derivation (RFC 7914)</div>
-                            <div class="crypto-layer-desc">N=131,072 · r=8 · p=1 · dkLen=32 bytes. Forces ~128 MB RAM per derivation attempt. With application pepper mixed into the salt.</div>
+                            <div class="crypto-layer-title">scrypt 密钥派生（RFC 7914）</div>
+                            <div class="crypto-layer-desc">N=131,072 · r=8 · p=1 · dkLen=32 字节。每次派生尝试强制占用约 128 MB 内存。应用级胡椒值（pepper）混入盐值中。</div>
                         </div>
-                        <div class="crypto-layer-tag tag-excellent">Memory-Hard</div>
+                        <div class="crypto-layer-tag tag-excellent">内存密集型</div>
                     </div>
 
                     <div class="crypto-layer">
                         <div class="crypto-layer-num">03</div>
                         <div>
-                            <div class="crypto-layer-title">Master Key Generation</div>
-                            <div class="crypto-layer-desc">64-byte cryptographically random master key generated via <code>SecRandomCopyBytes</code>. Never derived from or stored alongside the password.</div>
+                            <div class="crypto-layer-title">主密钥生成</div>
+                            <div class="crypto-layer-desc">通过 <code>SecRandomCopyBytes</code> 生成 64 字节的密码学安全随机主密钥。绝不从密码派生，也不与密码一同存储。</div>
                         </div>
                         <div class="crypto-layer-tag tag-strong">CSPRNG</div>
                     </div>
@@ -199,8 +198,8 @@
                     <div class="crypto-layer">
                         <div class="crypto-layer-num">04</div>
                         <div>
-                            <div class="crypto-layer-title">Key Wrapping (AES-256-GCM)</div>
-                            <div class="crypto-layer-desc">Master key sealed with the scrypt-derived key using AES-256-GCM authenticated encryption. Includes a verification check value.</div>
+                            <div class="crypto-layer-title">密钥封装（AES-256-GCM）</div>
+                            <div class="crypto-layer-desc">使用 scrypt 派生密钥，通过 AES-256-GCM 认证加密对主密钥进行封装。内含验证校验值。</div>
                         </div>
                         <div class="crypto-layer-tag tag-strong">AEAD</div>
                     </div>
@@ -208,126 +207,126 @@
                     <div class="crypto-layer">
                         <div class="crypto-layer-num">05</div>
                         <div>
-                            <div class="crypto-layer-title">Per-File Key Separation (HKDF-SHA512)</div>
-                            <div class="crypto-layer-desc">Each file gets a unique sub-key derived via HKDF-SHA512 with a purpose-specific info string. Compromise of one key cannot cascade.</div>
+                            <div class="crypto-layer-title">文件级密钥隔离（HKDF-SHA512）</div>
+                            <div class="crypto-layer-desc">每个文件通过 HKDF-SHA512 派生出独立的子密钥，使用带特定用途的 info 字符串。单个密钥泄露不会扩散影响其他文件。</div>
                         </div>
-                        <div class="crypto-layer-tag tag-strong">Key Isolation</div>
+                        <div class="crypto-layer-tag tag-strong">密钥隔离</div>
                     </div>
 
                     <div class="crypto-layer">
                         <div class="crypto-layer-num">06</div>
                         <div>
-                            <div class="crypto-layer-title">Chunked Double-Layer Encryption</div>
-                            <div class="crypto-layer-desc">Files split into 4 MB chunks. Each chunk sealed with AES-256-GCM (inner), then wrapped in ChaCha20-Poly1305 (outer). Per-chunk AAD binds position and path.</div>
+                            <div class="crypto-layer-title">分块双层加密</div>
+                            <div class="crypto-layer-desc">文件按 4 MB 分块。每块先用 AES-256-GCM（内层）加密，再用 ChaCha20-Poly1305（外层）包裹。每块的 AAD 绑定位置和路径信息。</div>
                         </div>
-                        <div class="crypto-layer-tag tag-excellent">Dual AEAD</div>
+                        <div class="crypto-layer-tag tag-excellent">双重 AEAD</div>
                     </div>
 
                     <div class="crypto-layer">
                         <div class="crypto-layer-num">07</div>
                         <div>
-                            <div class="crypto-layer-title">SHA-256 Integrity Verification</div>
-                            <div class="crypto-layer-desc">Every file's plaintext hash is stored inside the encrypted manifest. Decryption fails if even a single byte is altered.</div>
+                            <div class="crypto-layer-title">SHA-256 完整性校验</div>
+                            <div class="crypto-layer-desc">每个文件的明文哈希值存储在加密清单内部。即使只篡改一个字节，解密也会失败。</div>
                         </div>
-                        <div class="crypto-layer-tag tag-strong">Tamper-Proof</div>
+                        <div class="crypto-layer-tag tag-strong">防篡改</div>
                     </div>
 
                     <div class="crypto-layer">
                         <div class="crypto-layer-num">08</div>
                         <div>
-                            <div class="crypto-layer-title">Post-Quantum Recovery (Optional)</div>
-                            <div class="crypto-layer-desc">XWing-MLKEM768-X25519 hybrid KEM wraps the master key. AES-256-GCM sealed envelope with HKDF-SHA512 derived wrapping key. Resistant to Shor's algorithm.</div>
+                            <div class="crypto-layer-title">后量子恢复（可选）</div>
+                            <div class="crypto-layer-desc">XWing-MLKEM768-X25519 混合 KEM 封装主密钥。AES-256-GCM 密封信封，使用 HKDF-SHA512 派生的封装密钥。可抵御 Shor 算法。</div>
                         </div>
-                        <div class="crypto-layer-tag tag-quantum">Quantum-Safe</div>
+                        <div class="crypto-layer-tag tag-quantum">量子安全</div>
                     </div>
 
                     <div class="crypto-layer">
                         <div class="crypto-layer-num">09</div>
                         <div>
-                            <div class="crypto-layer-title">Metadata Concealment</div>
-                            <div class="crypto-layer-desc">File names, directory structure, file counts, and total sizes are encrypted inside the manifest. An attacker sees only opaque ciphertext.</div>
+                            <div class="crypto-layer-title">元数据隐藏</div>
+                            <div class="crypto-layer-desc">文件名、目录结构、文件数量和总大小均加密存储在清单中。攻击者只能看到不可读的密文。</div>
                         </div>
-                        <div class="crypto-layer-tag tag-excellent">Zero Leakage</div>
+                        <div class="crypto-layer-tag tag-excellent">零泄露</div>
                     </div>
 
                     <div class="crypto-layer">
                         <div class="crypto-layer-num">10</div>
                         <div>
-                            <div class="crypto-layer-title">Runtime Hardening</div>
-                            <div class="crypto-layer-desc">Core dumps disabled (<code>setrlimit RLIMIT_CORE=0</code>). <code>umask 0077</code> for owner-only files. Mutable key buffers are zeroed on a best-effort basis.</div>
+                            <div class="crypto-layer-title">运行时加固</div>
+                            <div class="crypto-layer-desc">禁用核心转储（<code>setrlimit RLIMIT_CORE=0</code>）。设置 <code>umask 0077</code> 确保文件仅所有者可访问。可变密钥缓冲区会尽力清零。</div>
                         </div>
-                        <div class="crypto-layer-tag tag-strong">Hardened</div>
+                        <div class="crypto-layer-tag tag-strong">已加固</div>
                     </div>
                 </div>
             </div>
 
             <!-- Technical Specs Table -->
             <div class="reveal glass-card" style="overflow-x: auto;">
-                <h3 style="font-size: 20px; margin-bottom: 24px;">Technical Specifications</h3>
+                <h3 style="font-size: 20px; margin-bottom: 24px;">技术规格</h3>
                 <table class="specs-table">
                     <tr>
-                        <th>Encryption Algorithm</th>
-                        <td>AES-256-GCM + ChaCha20-Poly1305 (double-layer AEAD)</td>
+                        <th>加密算法</th>
+                        <td>AES-256-GCM + ChaCha20-Poly1305（双层 AEAD）</td>
                     </tr>
                     <tr>
-                        <th>Key Derivation</th>
-                        <td>scrypt (RFC 7914)</td>
+                        <th>密钥派生</th>
+                        <td>scrypt（RFC 7914）</td>
                     </tr>
                     <tr>
-                        <th>scrypt Parameters</th>
+                        <th>scrypt 参数</th>
                         <td>N = 131,072 (2¹⁷) · r = 8 · p = 1</td>
                     </tr>
                     <tr>
-                        <th>Memory per Derivation</th>
-                        <td>~128 MB</td>
+                        <th>每次派生内存占用</th>
+                        <td>约 128 MB</td>
                     </tr>
                     <tr>
-                        <th>Master Key Size</th>
-                        <td>512 bits (64 bytes), CSPRNG-generated</td>
+                        <th>主密钥长度</th>
+                        <td>512 位（64 字节），由 CSPRNG 生成</td>
                     </tr>
                     <tr>
-                        <th>Sub-Key Derivation</th>
-                        <td>HKDF-SHA512 with domain-separated info strings</td>
+                        <th>子密钥派生</th>
+                        <td>HKDF-SHA512，使用域分隔的 info 字符串</td>
                     </tr>
                     <tr>
-                        <th>Salt Size</th>
-                        <td>256 bits (32 bytes) per vault, CSPRNG-generated</td>
+                        <th>盐值长度</th>
+                        <td>256 位（32 字节），每个保险库独立，由 CSPRNG 生成</td>
                     </tr>
                     <tr>
-                        <th>Chunk Size</th>
-                        <td>4 MB (4,194,304 bytes)</td>
+                        <th>分块大小</th>
+                        <td>4 MB（4,194,304 字节）</td>
                     </tr>
                     <tr>
-                        <th>Integrity Hash</th>
-                        <td>SHA-256 (stored in encrypted manifest)</td>
+                        <th>完整性哈希</th>
+                        <td>SHA-256（存储在加密清单中）</td>
                     </tr>
                     <tr>
-                        <th>Post-Quantum Recovery</th>
+                        <th>后量子恢复</th>
                         <td>XWing-MLKEM768-X25519-HKDFSHA512-AES256GCM</td>
                     </tr>
                     <tr>
-                        <th>Legacy PBKDF2 (v1 vaults)</th>
-                        <td>PBKDF2-HMAC-SHA512, 1,200,000 iterations</td>
+                        <th>旧版 PBKDF2（v1 保险库）</th>
+                        <td>PBKDF2-HMAC-SHA512，1,200,000 次迭代</td>
                     </tr>
                     <tr>
-                        <th>Minimum Password Length</th>
-                        <td>16 characters, ≥ 80 bits estimated entropy</td>
+                        <th>最短密码长度</th>
+                        <td>16 个字符，估计熵值 ≥ 80 位</td>
                     </tr>
                     <tr>
-                        <th>Random Number Generator</th>
-                        <td>SecRandomCopyBytes (macOS cryptographically secure random generator)</td>
+                        <th>随机数生成器</th>
+                        <td>SecRandomCopyBytes（macOS 密码学安全随机数生成器）</td>
                     </tr>
                     <tr>
-                        <th>Format Version</th>
-                        <td>v4 (chunked RFC 7914 scrypt + dual AEAD + HKDF-SHA512)</td>
+                        <th>格式版本</th>
+                        <td>v4（分块 RFC 7914 scrypt + 双重 AEAD + HKDF-SHA512）</td>
                     </tr>
                     <tr>
-                        <th>Platform</th>
-                        <td>macOS 15.6+ (post-quantum recovery requires macOS 26+)</td>
+                        <th>系统平台</th>
+                        <td>macOS 15.6+（后量子恢复需 macOS 26+）</td>
                     </tr>
                     <tr>
-                        <th>Data Collection</th>
-                        <td>None — zero network access, zero telemetry</td>
+                        <th>数据收集</th>
+                        <td>无——零网络访问，零遥测</td>
                     </tr>
                 </table>
             </div>
@@ -338,10 +337,10 @@
     <section class="section" id="how-it-works">
         <div class="container">
             <div class="reveal">
-                <div class="section-label">How It Works</div>
-                <h2 class="section-title">Lock in seconds. Unlock in seconds.</h2>
+                <div class="section-label">工作原理</div>
+                <h2 class="section-title">秒级锁定，秒级解锁。</h2>
                 <p class="section-subtitle">
-                    Three steps. No accounts, no cloud, no learning curve.
+                    简单三步。无需账户，无需云端，零学习成本。
                 </p>
             </div>
 
@@ -350,29 +349,29 @@
                     <div class="step-item">
                         <div class="step-num">1</div>
                         <div class="step-content">
-                            <h3>Drop a folder into 4869</h3>
-                            <p>Drag any folder onto the app window, or use the file picker. 4869 scans every file, rejects symlinks, and counts the total to be encrypted.</p>
+                            <h3>将文件夹拖入 4869</h3>
+                            <p>把任意文件夹拖到应用窗口上，或使用文件选择器。4869 会扫描每个文件，排除符号链接，并统计待加密的文件总数。</p>
                         </div>
                     </div>
                     <div class="step-item">
                         <div class="step-num">2</div>
                         <div class="step-content">
-                            <h3>Set a strong password</h3>
-                            <p>Choose a password of at least 16 characters. The built-in strength estimator helps you find the sweet spot between security and memorability. Optionally configure a decoy password for plausible deniability.</p>
+                            <h3>设置一个强密码</h3>
+                            <p>选择至少 16 个字符的密码。内置强度评估器帮助您在安全性和可记忆性之间找到最佳平衡。您也可以配置一个诱饵密码以实现可否认性。</p>
                         </div>
                     </div>
                     <div class="step-item">
                         <div class="step-num">3</div>
                         <div class="step-content">
-                            <h3>4869 encrypts, verifies, and seals</h3>
-                            <p>Every file is encrypted in 4 MB chunks with dual AEAD. The entire vault is then test-decrypted and verified against SHA-256 hashes before any plaintext is removed. Only after verification are originals securely shredded.</p>
+                            <h3>4869 加密、验证并封装</h3>
+                            <p>每个文件按 4 MB 分块进行双重 AEAD 加密。随后整个保险库会进行测试解密并对照 SHA-256 哈希值验证，之后才会删除任何明文。只有在验证通过后，原始文件才会被安全销毁。</p>
                         </div>
                     </div>
                     <div class="step-item">
                         <div class="step-num">4</div>
                         <div class="step-content">
-                            <h3>Double-click to unlock anytime</h3>
-                            <p>Your folder becomes a <code>.4869</code> package with a custom locked icon. Double-click it in Finder, enter your password, and your files are restored exactly as they were — directory structure, timestamps, everything.</p>
+                            <h3>随时双击解锁</h3>
+                            <p>您的文件夹会变成带有自定义锁定图标的 <code>.4869</code> 包。在 Finder 中双击它，输入密码，文件就会原封不动地还原——目录结构、时间戳，一切如初。</p>
                         </div>
                     </div>
                 </div>
@@ -380,11 +379,11 @@
 
             <!-- Code Example: Metadata Structure -->
             <div class="reveal" style="margin-top: 60px;">
-                <h3 style="font-size: 20px; margin-bottom: 16px;">What a vault looks like on disk</h3>
+                <h3 style="font-size: 20px; margin-bottom: 16px;">保险库在磁盘上的样子</h3>
                 <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 15px;">
-                    The vault metadata (<code>.4869.json</code>) contains only what's necessary for decryption.
-                    File names, paths, counts, and sizes live inside the encrypted manifest —
-                    an attacker examining the metadata learns nothing about your data.
+                    保险库元数据（<code>.4869.json</code>）仅包含解密所需的信息。
+                    文件名、路径、数量和大小都存放在加密清单中——
+                    攻击者即使查看元数据，也无法了解您的数据内容。
                 </p>
 <pre><code>{
     "formatVersion": 4,
@@ -393,13 +392,13 @@
     "scryptR": 8,
     "scryptP": 1,
     "cipher": "AES-256-GCM + ChaCha20-Poly1305",
-    "wrappedMasterKey": "<base64: AES-256-GCM sealed master key>",
-    "vaultCheck": "<base64: AEAD authentication check value>",
-    "encryptedManifest": "<base64: dual-layer encrypted file manifest>",
-    "decoySalt": "<base64: indistinguishable from real or random>",
-    "decoyWrappedKey": "<base64: indistinguishable from real or random>",
-    "decoyEncryptedManifest": "<base64: indistinguishable from real or random>",
-    "postQuantumRecoveryEnvelope": "<base64: optional PQ recovery envelope>"
+    "wrappedMasterKey": "<base64: AES-256-GCM 封装的主密钥>",
+    "vaultCheck": "<base64: AEAD 认证校验值>",
+    "encryptedManifest": "<base64: 双层加密的文件清单>",
+    "decoySalt": "<base64: 与真实数据或随机数据无法区分>",
+    "decoyWrappedKey": "<base64: 与真实数据或随机数据无法区分>",
+    "decoyEncryptedManifest": "<base64: 与真实数据或随机数据无法区分>",
+    "postQuantumRecoveryEnvelope": "<base64: 可选的后量子恢复信封>"
 }</code></pre>
             </div>
         </div>
@@ -409,10 +408,10 @@
     <section class="section" id="comparison">
         <div class="container">
             <div class="reveal">
-                <div class="section-label">Why 4869</div>
-                <h2 class="section-title">How 4869 compares to alternatives.</h2>
+                <div class="section-label">为何选择 4869</div>
+                <h2 class="section-title">4869 与其他方案的对比。</h2>
                 <p class="section-subtitle">
-                    Most "encryption" apps trust a server somewhere. 4869 trusts nothing but math.
+                    大多数"加密"应用都要依赖某个服务器。4869 只相信数学。
                 </p>
             </div>
 
@@ -420,72 +419,72 @@
                 <table class="comparison-table">
                     <thead>
                         <tr>
-                            <th>Capability</th>
+                            <th>功能</th>
                             <th>4869</th>
-                            <th>Cloud Vault Apps</th>
-                            <th>Built-in FileVault</th>
+                            <th>云保险库应用</th>
+                            <th>系统自带 FileVault</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Works fully offline</td>
-                            <td class="check">✓ Yes</td>
-                            <td class="cross">✗ Requires internet</td>
-                            <td class="check">✓ Yes</td>
+                            <td>完全离线可用</td>
+                            <td class="check">✓ 是</td>
+                            <td class="cross">✗ 需要联网</td>
+                            <td class="check">✓ 是</td>
                         </tr>
                         <tr>
-                            <td>Per-folder encryption</td>
-                            <td class="check">✓ Any folder</td>
-                            <td class="check">✓ Selected folders</td>
-                            <td class="cross">✗ Entire disk only</td>
+                            <td>按文件夹加密</td>
+                            <td class="check">✓ 任意文件夹</td>
+                            <td class="check">✓ 选定文件夹</td>
+                            <td class="cross">✗ 仅限整盘</td>
                         </tr>
                         <tr>
-                            <td>Double-layer AEAD</td>
+                            <td>双层 AEAD</td>
                             <td class="check">✓ AES-GCM + ChaCha20</td>
-                            <td class="cross">✗ Single algorithm</td>
-                            <td class="cross">✗ Single algorithm</td>
+                            <td class="cross">✗ 单一算法</td>
+                            <td class="cross">✗ 单一算法</td>
                         </tr>
                         <tr>
-                            <td>Memory-hard KDF (scrypt)</td>
+                            <td>内存密集型 KDF（scrypt）</td>
                             <td class="check">✓ 128 MB</td>
-                            <td class="cross">✗ PBKDF2 (low cost)</td>
-                            <td class="check">✓ Yes</td>
+                            <td class="cross">✗ PBKDF2（成本低）</td>
+                            <td class="check">✓ 是</td>
                         </tr>
                         <tr>
-                            <td>Plausible deniability</td>
-                            <td class="check">✓ Decoy passwords</td>
-                            <td class="cross">✗ Not available</td>
-                            <td class="cross">✗ Not available</td>
+                            <td>可否认性</td>
+                            <td class="check">✓ 诱饵密码</td>
+                            <td class="cross">✗ 不支持</td>
+                            <td class="cross">✗ 不支持</td>
                         </tr>
                         <tr>
-                            <td>Post-quantum recovery</td>
-                            <td class="check">✓ XWing hybrid KEM</td>
-                            <td class="cross">✗ Not available</td>
-                            <td class="cross">✗ Not available</td>
+                            <td>后量子恢复</td>
+                            <td class="check">✓ XWing 混合 KEM</td>
+                            <td class="cross">✗ 不支持</td>
+                            <td class="cross">✗ 不支持</td>
                         </tr>
                         <tr>
-                            <td>No servers / no account</td>
-                            <td class="check">✓ Zero infrastructure</td>
-                            <td class="cross">✗ Server-dependent</td>
-                            <td class="check">✓ Yes</td>
+                            <td>无需服务器/账户</td>
+                            <td class="check">✓ 零基础设施</td>
+                            <td class="cross">✗ 依赖服务器</td>
+                            <td class="check">✓ 是</td>
                         </tr>
                         <tr>
-                            <td>No telemetry / analytics</td>
-                            <td class="check">✓ Zero tracking</td>
-                            <td class="cross">✗ Often collected</td>
-                            <td class="check">✓ Yes</td>
+                            <td>无遥测/分析</td>
+                            <td class="check">✓ 零追踪</td>
+                            <td class="cross">✗ 通常会收集</td>
+                            <td class="check">✓ 是</td>
                         </tr>
                         <tr>
-                            <td>Secure file shredding</td>
-                            <td class="check">✓ Overwrite + unlink</td>
-                            <td class="cross">✗ Simple delete</td>
-                            <td class="cross">✗ N/A</td>
+                            <td>安全文件销毁</td>
+                            <td class="check">✓ 覆盖 + 移除</td>
+                            <td class="cross">✗ 简单删除</td>
+                            <td class="cross">✗ 不适用</td>
                         </tr>
                         <tr>
-                            <td>Crypto self-test on launch</td>
+                            <td>启动时加密自检</td>
                             <td class="check">✓ SHA/AES/ChaCha/scrypt</td>
-                            <td class="cross">✗ Not performed</td>
-                            <td class="cross">✗ Not performed</td>
+                            <td class="cross">✗ 不执行</td>
+                            <td class="cross">✗ 不执行</td>
                         </tr>
                     </tbody>
                 </table>
@@ -497,49 +496,49 @@
     <section class="section" id="advanced">
         <div class="container">
             <div class="reveal">
-                <div class="section-label">Advanced Protection</div>
-                <h2 class="section-title">Decoy passwords and recovery keys, step by step.</h2>
-                <p class="section-subtitle">These features solve different problems. A decoy password provides a separate harmless view; a recovery key provides emergency access when the real password is unavailable.</p>
+                <div class="section-label">高级保护</div>
+                <h2 class="section-title">诱饵密码与恢复密钥，详细指南。</h2>
+                <p class="section-subtitle">这两个功能解决不同的问题。诱饵密码提供一个独立的无害视图；恢复密钥则在真实密码不可用时提供紧急访问途径。</p>
             </div>
             <div class="feature-grid">
                 <div class="glass-card reveal">
                     <div class="feature-icon">🎭</div>
-                    <h3>How to configure a decoy password</h3>
+                    <h3>如何配置诱饵密码</h3>
                     <ol style="color:var(--text-secondary);line-height:1.8;padding-left:22px">
-                        <li>Select an unlocked folder and enter your real password twice.</li>
-                        <li>Expand <strong>Plausible Deniability</strong>.</li>
-                        <li>Enter a different decoy password of at least 16 characters. It must not match the real password.</li>
-                        <li>Lock the folder normally. The current app creates a harmless <code>README.txt</code> placeholder for the decoy view.</li>
-                        <li>If you later enter the decoy password, the vault remains a <code>.4869</code> package and reveals only the placeholder. Entering the real password restores the actual files.</li>
+                        <li>选择一个未锁定的文件夹，并输入两次真实密码。</li>
+                        <li>展开<strong>可否认性</strong>选项。</li>
+                        <li>输入一个不同的诱饵密码，至少 16 个字符。它不能与真实密码相同。</li>
+                        <li>正常锁定文件夹。当前版本的应用会为诱饵视图创建一个无害的 <code>README.txt</code> 占位文件。</li>
+                        <li>如果您之后输入诱饵密码，保险库仍保持 <code>.4869</code> 包格式，只显示占位文件。输入真实密码才会还原实际文件。</li>
                     </ol>
                 </div>
                 <div class="glass-card reveal">
                     <div class="feature-icon">⚠️</div>
-                    <h3>Decoy limitations</h3>
-                    <p>The decoy is not a second backup, and it does not make the existence of encrypted data disappear. It is designed so the metadata does not directly reveal whether a decoy slot is genuine, but operational clues, backups, logs, file history, or user behavior may still reveal information.</p>
-                    <p style="margin-top:12px">Test both passwords before relying on the feature. Never reuse either password, and never use the decoy password as the real password for another vault.</p>
+                    <h3>诱饵功能的局限性</h3>
+                    <p>诱饵并不是第二份备份，它也不能让加密数据的存在痕迹完全消失。它的设计使得元数据本身不会直接暴露诱饵槽是否真实存在，但操作痕迹、备份、日志、文件历史记录或用户行为仍可能泄露信息。</p>
+                    <p style="margin-top:12px">在依赖此功能之前，请务必测试两个密码。切勿重复使用任何一个密码，也不要将诱饵密码用作其他保险库的真实密码。</p>
                 </div>
                 <div class="glass-card reveal">
                     <div class="feature-icon">🛡️</div>
-                    <h3>How to generate a recovery key</h3>
+                    <h3>如何生成恢复密钥</h3>
                     <ol style="color:var(--text-secondary);line-height:1.8;padding-left:22px">
-                        <li>Use macOS 26 or later; the switch is disabled on older systems.</li>
-                        <li>Before locking, enable <strong>Post-Quantum Recovery Key</strong>.</li>
-                        <li>After encryption succeeds, choose a save location for the generated <code>.4869-recovery-key</code> document.</li>
-                        <li>Store it separately from the vault—for example, on an offline encrypted drive. Do not leave the only copy next to the vault.</li>
-                        <li>Keep the normal password as your primary unlock method. The recovery document is an emergency credential.</li>
+                        <li>使用 macOS 26 或更高版本；旧系统上此开关处于禁用状态。</li>
+                        <li>锁定之前，启用<strong>后量子恢复密钥</strong>。</li>
+                        <li>加密成功后，为生成的 <code>.4869-recovery-key</code> 文档选择保存位置。</li>
+                        <li>将其与保险库分开存放——例如保存在离线的加密驱动器上。不要将唯一副本与保险库放在一起。</li>
+                        <li>将常规密码作为您的主要解锁方式。恢复文档是应急凭据。</li>
                     </ol>
                 </div>
                 <div class="glass-card reveal">
                     <div class="feature-icon">🔑</div>
-                    <h3>How to recover a vault</h3>
+                    <h3>如何恢复保险库</h3>
                     <ol style="color:var(--text-secondary);line-height:1.8;padding-left:22px">
-                        <li>Select the locked <code>.4869</code> vault in 4869.</li>
-                        <li>Click <strong>Recovery Key</strong> instead of entering a password.</li>
-                        <li>Choose the matching <code>.4869-recovery-key</code> document.</li>
-                        <li>4869 validates the key, decrypts the manifest, restores every file in staging, verifies hashes, and only then commits the restored folder.</li>
+                        <li>在 4869 中选择已锁定的 <code>.4869</code> 保险库。</li>
+                        <li>点击<strong>恢复密钥</strong>，而不是输入密码。</li>
+                        <li>选择对应的 <code>.4869-recovery-key</code> 文档。</li>
+                        <li>4869 会验证密钥、解密清单、将每个文件还原到临时区域、校验哈希值，只有在全部通过后才提交还原的文件夹。</li>
                     </ol>
-                    <p style="margin-top:12px"><strong>Anyone holding both the vault and its recovery key can decrypt it.</strong> A lost recovery key cannot be regenerated from the vault. Creating a new vault generates a different key.</p>
+                    <p style="margin-top:12px"><strong>任何同时拥有保险库及其恢复密钥的人都可以解密。</strong>丢失的恢复密钥无法从保险库中重新生成。创建新的保险库会生成不同的密钥。</p>
                 </div>
             </div>
         </div>
@@ -549,130 +548,130 @@
     <section class="section" id="faq">
         <div class="container">
             <div class="reveal">
-                <div class="section-label">FAQ</div>
-                <h2 class="section-title">Questions, answered.</h2>
+                <div class="section-label">常见问题</div>
+                <h2 class="section-title">为您解答疑问。</h2>
                 <p class="section-subtitle">
-                    Everything you need to know about how 4869 protects your data.
+                    关于 4869 如何保护您的数据，您需要了解的一切。
                 </p>
             </div>
 
             <div class="reveal" style="max-width: 760px;">
                 <div class="faq-item open">
                     <button class="faq-question">
-                        Can I recover my files if I forget my password?
+                        如果忘记密码，还能恢复文件吗？
                         <span class="chevron">⌄</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Without a password or recovery key, your data is mathematically unrecoverable — this is by design. However, if you enabled <strong>Post-Quantum Recovery</strong> when encrypting, you can use the exported recovery key to unlock the vault at any time. The recovery key uses XWing-MLKEM768-X25519 hybrid key encapsulation. We strongly recommend enabling it and storing the key in a safe location.
+                            如果没有密码或恢复密钥，您的数据在数学上无法恢复——这是设计使然。但如果您在加密时启用了<strong>后量子恢复</strong>，就可以使用导出的恢复密钥随时解锁保险库。恢复密钥采用 XWing-MLKEM768-X25519 混合密钥封装技术。我们强烈建议您启用此功能，并将密钥保存在安全的位置。
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        Does 4869 send any data to the internet?
+                        4869 会向互联网发送任何数据吗？
                         <span class="chevron">⌄</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            No. The current version implements no servers, API calls, telemetry, crash reporting, analytics, or other network requests. You can run 4869 with your network connection disabled; its local encryption features work identically.
+                            不会。当前版本不包含任何服务器、API 调用、遥测、崩溃报告、分析或其他网络请求。您可以在断网状态下运行 4869，其本地加密功能完全不受影响。
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        What happens to my original files after encryption?
+                        加密后原始文件会怎样处理？
                         <span class="chevron">⌄</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            After every encrypted file has been verified by test-decrypting it and checking its SHA-256 hash, 4869 securely shreds the originals. Each file is overwritten with cryptographically random data, truncated to zero bytes, then unlinked from the filesystem. This makes recovery with forensic tools (TestDisk, PhotoRec, Autopsy) impractical. On SSDs with wear-leveling, no software can guarantee 100% destruction, but 4869 raises the bar as high as the hardware allows.
+                            在每个加密文件都经过测试解密并校验 SHA-256 哈希值之后，4869 才会安全销毁原始文件。每个文件先被密码学随机数据覆盖，截断为零字节，然后从文件系统中移除。这使得使用取证工具（TestDisk、PhotoRec、Autopsy）进行恢复变得不切实际。对于具有磨损均衡机制的 SSD，没有任何软件能保证 100% 销毁，但 4869 已在硬件允许的范围内将安全标准提升到最高。
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        What is plausible deniability and how does the decoy work?
+                        什么是可否认性？诱饵密码是如何工作的？
                         <span class="chevron">⌄</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            When you set a decoy password, 4869 creates a second, hidden encrypted "slot" inside the vault metadata. If you are ever coerced into revealing your password, you can provide the decoy password instead. It will unlock a separate set of harmless files (either files you designate or a default placeholder). The vault metadata is designed so that an examiner cannot determine from its structure whether the real or decoy password was used. Even when no decoy is configured, the decoy fields are filled with random data that is indistinguishable from real encrypted content.
+                            当您设置诱饵密码时，4869 会在保险库元数据中创建第二个隐藏的加密"槽位"。如果您被迫交出密码，您可以提供诱饵密码。它将解锁一组单独的无害文件（您指定的文件或默认占位文件）。保险库元数据的设计使得审查者无法从其结构判断使用的是真实密码还是诱饵密码。即使没有配置诱饵，诱饵字段也会填充与真实加密内容无法区分的随机数据。
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        Why use two encryption algorithms (AES-GCM and ChaCha20)?
+                        为什么要使用两种加密算法（AES-GCM 和 ChaCha20）？
                         <span class="chevron">⌄</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Defense in depth. Each file chunk is first sealed with AES-256-GCM, then the result is wrapped in ChaCha20-Poly1305. Both are authenticated encryption schemes (AEAD) — they provide confidentiality and integrity simultaneously. Using two independent algorithms means that even if a catastrophic vulnerability were discovered in one cipher, the other would still protect your data. This is the same principle behind TLS 1.3's hybrid designs.
+                            为了纵深防御。每个文件块先用 AES-256-GCM 加密，然后将结果用 ChaCha20-Poly1305 包裹。两者都是认证加密方案（AEAD）——它们同时提供机密性和完整性。使用两种独立的算法意味着，即使在其中一种密码中发现灾难性漏洞，另一种仍然可以保护您的数据。这与 TLS 1.3 混合设计背后的原理相同。
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        Is scrypt better than PBKDF2?
+                        scrypt 比 PBKDF2 更好吗？
                         <span class="chevron">⌄</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            For password-based encryption, yes. PBKDF2 is CPU-hard but not memory-hard — an attacker can build specialized hardware (ASICs) that compute millions of PBKDF2 attempts in parallel for very little cost. scrypt (RFC 7914) is both CPU-hard and memory-hard: each derivation attempt requires ~128 MB of RAM, which means an attacker would need to provision enormous amounts of memory to parallelize brute-force attacks. A 24 GB GPU can only run about 180 concurrent scrypt instances, making large-scale attacks economically impractical.
+                            对于基于密码的加密，答案是肯定的。PBKDF2 是 CPU 密集型但非内存密集型——攻击者可以制造专用硬件（ASIC），以极低的成本并行计算数百万次 PBKDF2 尝试。scrypt（RFC 7914）既是 CPU 密集型又是内存密集型：每次派生尝试需要约 128 MB 内存，这意味着攻击者必须配置大量内存才能并行进行暴力破解。一块 24 GB 的 GPU 只能同时运行约 180 个 scrypt 实例，使大规模攻击在经济上不可行。
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        What does "post-quantum ready" mean?
+                        "后量子就绪"是什么意思？
                         <span class="chevron">⌄</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Traditional public-key cryptography (RSA, ECC, Diffie-Hellman) can be broken by a sufficiently powerful quantum computer using Shor's algorithm. 4869's optional recovery system uses XWing, a hybrid Key Encapsulation Mechanism that combines ML-KEM-768 (NIST's post-quantum standard, formerly CRYSTALS-Kyber) with X25519 (classical elliptic curve). This means the recovery key remains secure even if large-scale quantum computers become a reality. XWing is available starting from macOS 26.
+                            传统的公钥密码学（RSA、ECC、Diffie-Hellman）可以被足够强大的量子计算机通过 Shor 算法破解。4869 的可选恢复系统使用 XWing，这是一种混合密钥封装机制，将 ML-KEM-768（NIST 的后量子标准，原名 CRYSTALS-Kyber）与 X25519（经典椭圆曲线）相结合。这意味着即使大规模量子计算机成为现实，恢复密钥仍然安全。XWing 从 macOS 26 开始可用。
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        Can 4869 encrypt any type of file?
+                        4869 能加密任何类型的文件吗？
                         <span class="chevron">⌄</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            4869 can encrypt any regular file — documents, photos, videos, databases, archives, source code, anything. It preserves the complete directory structure (including empty folders) and file modification timestamps. The only restriction is that symbolic links are rejected for security reasons. There is no file size limit; large files are processed in 4 MB chunks to keep memory usage flat.
+                            4869 可以加密任何常规文件——文档、照片、视频、数据库、归档、源代码，无所不包。它会保留完整的目录结构（包括空文件夹）和文件修改时间戳。唯一的限制是出于安全原因拒绝符号链接。没有文件大小限制；大文件按 4 MB 分块处理，以保持内存占用平稳。
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        What if the app crashes during encryption?
+                        如果加密过程中应用崩溃了怎么办？
                         <span class="chevron">⌄</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            4869 is designed for crash safety. During encryption, all work happens in temporary directories. The original files are not touched until every encrypted chunk has been written, verified by test-decryption, and confirmed via SHA-256. Only then are originals removed. If the app crashes at any point, the temporary data is cleaned up on the next launch, and your original files remain completely intact. The app also supports a rollback mechanism that re-decrypts committed data if plaintext cleanup fails.
+                            4869 专为崩溃安全性而设计。加密期间，所有操作都在临时目录中进行。在每个加密块写入完成、通过测试解密验证、并经 SHA-256 确认之前，原始文件不会被触碰。只有验证通过后才会移除原始文件。如果应用在任何时候崩溃，临时数据会在下次启动时被清理，您的原始文件完全不受影响。应用还支持回滚机制——如果明文清理失败，会重新解密已提交的数据。
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        Is 4869 open source?
+                        4869 是开源的吗？
                         <span class="chevron">⌄</span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            The website, release downloads, security documentation, and issue tracker are available on <a href="https://github.com/AaronYang47/4869" style="color: var(--accent-cyan);">GitHub</a>. The cryptographic design is documented for independent review.
+                            网站、版本下载、安全文档和问题跟踪器均可在 <a href="https://github.com/AaronYang47/4869" style="color: var(--accent-cyan);">GitHub</a> 上查看。加密设计已备档，供独立审查。
                         </div>
                     </div>
                 </div>
@@ -684,13 +683,13 @@
     <section class="section cta-section">
         <div class="container">
             <div class="cta-box reveal">
-                <h2>Ready to take control of your data?</h2>
-                <p>Download 4869 and encrypt your first folder in under a minute.</p>
+                <h2>准备好掌控您的数据了吗？</h2>
+                <p>下载 4869，不到一分钟就能加密您的第一个文件夹。</p>
                 <div class="hero-actions">
                     <a href="https://gitee.com/aaron0047/4869/releases/download/v1.0/4869-1.0.dmg" class="btn btn-primary">
-                        <span></span> Download for Mac
+                        <span></span> 下载 Mac 版
                     </a>
-                    <a href="support.html" class="btn btn-secondary">Get Support</a>
+                    <a href="support.html" class="btn btn-secondary">获取支持</a>
                 </div>
             </div>
         </div>
@@ -705,43 +704,42 @@
                         <img src="images/logo.png" alt="4869 Logo" class="nav-logo-img">
                         4869
                     </div>
-                    <p>Local folder encryption for macOS. Your files stay under your control.</p>
+                    <p>适用于 macOS 的本地文件夹加密。您的文件始终由您掌控。</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Product</h4>
+                    <h4>产品</h4>
                     <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#security">Security</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#features">功能</a></li>
+                        <li><a href="#security">安全性</a></li>
+                        <li><a href="#how-it-works">工作原理</a></li>
+                        <li><a href="#faq">常见问题</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Legal</h4>
+                    <h4>法律信息</h4>
                     <ul>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Use</a></li>
-                        <li><a href="terms.html#disclaimer">Disclaimer</a></li>
-                        <li><a href="terms.html#license">License</a></li>
+                        <li><a href="privacy-policy.html">隐私政策</a></li>
+                        <li><a href="terms.html">使用条款</a></li>
+                        <li><a href="terms.html#disclaimer">免责声明</a></li>
+                        <li><a href="terms.html#license">许可证</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Connect</h4>
+                    <h4>联系我们</h4>
                     <ul>
-                        <li><a href="support.html">Support</a></li>
+                        <li><a href="support.html">支持</a></li>
                         <li><a href="https://github.com/AaronYang47/4869">GitHub</a></li>
-                        <li><a href="https://github.com/AaronYang47/4869/issues">Issues</a></li>
+                        <li><a href="https://github.com/AaronYang47/4869/issues">问题反馈</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024–2025 4869. All rights reserved.</p>
-                <span class="footer-badge">🔒 Zero Data Collection</span>
+                <p>&copy; 2024–2025 4869. 保留所有权利。</p>
+                <span class="footer-badge">🔒 零数据收集</span>
             </div>
         </div>
     </footer>
 
-    <script src="js/localize-zh.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
